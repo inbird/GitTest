@@ -9,12 +9,15 @@ import time
 # 웹 크롤링 수행 후 엑셀에 저장
 """
 driver = webdriver.Chrome("./chromedriver")
+driver.implicitly_wait(3)
 result_list = []
 
 for i in range(1,11):
     print( i, "페이지")    
     driver.get( "https://www1.president.go.kr/petitions/best?page=" + str(i) )
-    soup = BeautifulSoup( driver.page_source, 'html.parser' )
+    html = driver.page_source
+    soup = BeautifulSoup( html, 'html.parser' )
+
     for j in soup.select("#cont_view > div.cs_area > div > div > div.board.text > div.b_list.category > div.bl_body > ul > li"):
         #print( i.text )
         print( j.find("div", class_ = "bl_subject" ).text[3:].strip() )
@@ -30,7 +33,8 @@ for i in range(1, len(result_list) + 1 ):
 
 write_workbook.save("blue.xlsx")    
 write_workbook.close()
-"""
+
+
 
 # 엑셀에 저장된 결과값 조회
 
@@ -46,4 +50,31 @@ for i in range(1, 150) :
 
 for i in write_list:
     print(i)
+"""
+
+# 자연어 분석
+#JDK설치 후 Anaconda Prompt 오픈
+#conda install -c conda-forge jpype1
+#pip install konlpy
+
+from konlpy.tag import Kkma
+
+kkma = Kkma()
+print( kkma.sentences("네 안녕하세요. 반갑습니다. 저는 회사에 다닙니다") )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

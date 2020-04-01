@@ -1,0 +1,39 @@
+…or create a new repository on the command line
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/inbird/GitTest.git
+git push -u origin master
+
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/inbird/GitTest.git
+git push -u origin master
+git push origin +master
+
+0. git 설치
+ - git download
+
+1. 최초 폴더 생성 후
+git init
+git status
+git add .
+
+git config --global user.email "inbirdg@gmail.com"
+git config --golbal user.name "inbird"
+git commit -m 'test'
+ 
+git push -u origin master
+
+2. 브랜치 만들기
+git checkout -b beta
+git branch
+
+
+git push -u origin beta
+
+3. 머지
+git checkout master
+git branch
+git merge beta
+

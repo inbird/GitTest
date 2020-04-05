@@ -1,4 +1,6 @@
-…or create a new repository on the command line
+
+git clone https://github.com/inbird/GitTest.git
+
 git init
 git add README.md
 git commit -m "first commit"
@@ -36,4 +38,6 @@ git push -u origin beta
 git checkout master
 git branch
 git merge beta
+
+4. 아나콘다 프롬프트 : jupyter lab
 

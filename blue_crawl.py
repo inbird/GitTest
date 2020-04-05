@@ -199,36 +199,20 @@ plt.show()
 """
 
 # 취임사 내용 기반 워드클라우드
-"""
+
 # 1) 워드 클라우드 기능 이용
-text1 = open('2003(No).txt').read()
-text2 = open('2008(Lee).txt').read()
-text3 = open('2013(Park).txt').read()
-text4 = open('2017(Mun).txt').read()
+file_name = ['2003(No).txt', '2008(Lee).txt', '2013(Park).txt', '2017(Mun).txt']
 
-wc1 = WordCloud(font_path='./malgun.ttf', background_color="white").generate(text1)
-wc2 = WordCloud(font_path='./malgun.ttf', background_color="white").generate(text2)
-wc3 = WordCloud(font_path='./malgun.ttf', background_color="white").generate(text3)
-wc4 = WordCloud(font_path='./malgun.ttf', background_color="white").generate(text4)
+for i in range(0, len( file_name )) :
+    print( "파일명 : ", file_name[i] )
+    text = open( file_name[i] ).read()
+    wc = WordCloud(font_path='./malgun.ttf', background_color="white").generate(text)
+    fig = plt.figure( figsize=(14,14))
+    plt.imshow(wc, interpolation='bilinear')
+    plt.axis('off')
+    plt.show()
 
-fig = plt.figure( figsize=(14,14))
-plt.imshow(wc1, interpolation='bilinear')
-plt.axis('off')
-plt.show()
-fig = plt.figure( figsize=(14,14))
-plt.imshow(wc2, interpolation='bilinear')
-plt.axis('off')
-plt.show()
-fig = plt.figure( figsize=(14,14))
-plt.imshow(wc3, interpolation='bilinear')
-plt.axis('off')
-plt.show()
-fig = plt.figure( figsize=(14,14))
-plt.imshow(wc4, interpolation='bilinear')
-plt.axis('off')
-plt.show()
 """
-
 # 2) konlpy 기능 이용
 file_name = ['2003(No).txt', '2008(Lee).txt', '2013(Park).txt', '2017(Mun).txt']
 parse_list = []
@@ -249,20 +233,7 @@ for i in range(0, len( file_name )) :
     plt.imshow(wc1, interpolation='bilinear')
     plt.axis('off')
     plt.show()
-    
 """    
-for i in list_sentence1:
-    parse_list1 += [ s for s in kkma.nouns( i ) if len(s) > 1 ]
-
-for i, s in enumerate(parse_list1) :
-    final_text1 = final_text1 + " " + s
-    
-wc1 = WordCloud(font_path='./malgun.ttf', background_color="white").generate(final_text1)
-fig = plt.figure( figsize=(14,14))
-plt.imshow(wc1, interpolation='bilinear')
-plt.axis('off')
-plt.show()
-""" 
     
     
     

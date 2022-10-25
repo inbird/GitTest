@@ -1,4 +1,4 @@
-
+GIT TEST
 git clone https://github.com/inbird/GitTest.git
 
 git init
